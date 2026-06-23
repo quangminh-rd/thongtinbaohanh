@@ -710,276 +710,77 @@ h2 {
     }
 }
 
-/* ===========================
-   MOBILE APP STYLE
-=========================== */
-
-
-@media screen and (max-width:640px) {
-
-
-    body {
-
-        padding: 8px;
-
-        background: #f1f5f9;
-
-    }
-
-
-    .content {
-
-        padding: 12px;
-
-        border-radius: 20px;
-
-        box-shadow: none;
-
-    }
-
-
+@media screen and (max-width: 640px) {
     .hero {
-
-        display: flex;
-
-        flex-direction: column;
-
-        text-align: center;
-
+        padding: 14px;
     }
-
 
     .brand-mark {
-
-        width: 100px;
-
-        height: 100px;
-
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
     }
 
-
-    .hotline-banner {
-
-        padding: 16px;
-
-        border-radius: 18px;
-
-    }
-
-
-    .hotline-number {
-
+    h2 {
         font-size: 22px;
-
     }
 
-
-
-    /* Card thông tin đơn hàng */
-
-    .section-card {
-
-        border-radius: 18px;
-
+    .subline,
+    .info-table td,
+    .bordered-table {
+        font-size: 11px;
     }
 
-
-    .section-head {
-
-        padding: 14px;
-
-        font-size: 14px;
-
+    .info-table,
+    .info-table tbody,
+    .info-table tr,
+    .info-table td {
+        display: block;
+        width: 100%;
     }
 
+    .info-table tr {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .info-table tr:last-child {
+        border-bottom: none;
+    }
 
     .info-table td {
-
-        font-size: 13px;
-
+        border-bottom: none;
     }
 
-
-
-    /* sản phẩm */
-
-    .table-wrap {
-
-        border-radius: 18px;
-
-    }
-
-
-    .bordered-table,
-    .bordered-table thead,
-    .bordered-table tbody,
-    .bordered-table th,
-    .bordered-table td,
-    .bordered-table tr {
-
+    .info-label,
+    .info-sep,
+    .info-value {
+        width: 100%;
         display: block;
-
     }
 
+    .info-label {
+        padding-bottom: 4px;
+        background: transparent;
+    }
 
-    /* Ẩn header */
-
-    .bordered-table thead {
-
+    .info-sep {
         display: none;
-
     }
 
-
-
-    .bordered-table tbody tr.item-main-row {
-
-
-        background: white;
-
-        margin: 12px 0;
-
-        border-radius: 18px;
-
-        padding: 14px;
-
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
-
-
+    .info-value {
+        padding-top: 0;
     }
 
-
-    /* mỗi dòng thành card */
-
-
+    .bordered-table thead th,
     .bordered-table tbody td {
-
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-
-        border: none;
-
-        padding: 8px 4px;
-
-
-        font-size: 13px;
-
+        padding: 8px 6px;
     }
 
-
-
-    .bordered-table tbody td::before {
-
-
-        font-weight: 700;
-
-        color: #0f4c81;
-
+    .table-toolbar {
+        padding: 12px 14px;
     }
 
-
-    .bordered-table tbody td:nth-child(1)::before {
-
-        content: "STT";
-
+    .table-toolbar .title strong {
+        font-size: 14px;
     }
-
-
-    .bordered-table tbody td:nth-child(2)::before {
-
-        content: "Mã SP";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(3)::before {
-
-        content: "Mô tả";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(4)::before {
-
-        content: "Rộng";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(5)::before {
-
-        content: "Cao";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(6)::before {
-
-        content: "SL";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(7)::before {
-
-        content: "HDSD";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(8)::before {
-
-        content: "Lắp đặt";
-
-    }
-
-
-    .bordered-table tbody td:nth-child(9)::before {
-
-        content: "Bảo hành";
-
-    }
-
-
-
-    .warranty-toggle,
-    .guide-link {
-
-        padding: 8px 14px;
-
-        font-size: 12px;
-
-    }
-
-    button,
-    a {
-
-        -webkit-tap-highlight-color: transparent;
-
-    }
-
-
-    .section-card,
-    .table-wrap,
-    .hotline-banner {
-
-
-        transition: .25s ease;
-
-    }
-
-
-
-    .section-card:active,
-    .table-wrap:active {
-
-        transform: scale(.99);
-
-    }
-
 }
