@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin bảo hành</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
+
+</head>
+
+<body>
+    <div class="page-shell">
+        <div class="content" id="content">
+            <div class="hero">
+                <div class="brand-mark">
+                    <img src="https://i.imgur.com/BrJoeOv.png" alt="Logo">
+                </div>
+                <div class="hero-copy">
+                    <h2>THÔNG TIN BẢO HÀNH</h2>
+                    <div class="eyebrow">Sản phẩm được bảo hành chính hãng bởi Quang Minh</div>
+                </div>
+            </div>
+            <div class="hotline-banner">
+                <div class="hotline-icon">📞</div>
+                <div class="hotline-content">
+                    <div class="hotline-title">
+                        Hotline hỗ trợ khách hàng
+                    </div>
+                    <div class="hotline-number">
+                        <a href="tel:19000282">1900 0282</a>
+                    </div>
+                    <div class="hotline-note">
+                        Liên hệ ngay khi cần hỗ trợ bảo hành, bảo trì hoặc tư vấn kỹ thuật.
+                    </div>
+                </div>
+            </div>
+            <div class="grid-layout">
+                <div class="section-card">
+                    <div class="section-head">
+                        <span>Thông tin đơn hàng</span>
+                    </div>
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <td class="info-label">Tên người liên hệ</td>
+                                <td class="info-value"><i><span id="tenNguoiLienHe">Đang tải...</span></i></td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Số điện thoại</td>
+                                <td class="info-value"><i><span id="sdtKhachHang">Đang tải...</span></i></td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Địa chỉ chi tiết</td>
+                                <td class="info-value"><i><span id="diaChiChiTiet">Đang tải...</span></i></td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Mã hợp đồng</td>
+                                <td class="info-value"><i><span id="maHopDong">Đang tải...</span></i></td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Ngày bàn giao</td>
+                                <td class="info-value"><i><span id="ngayBanGiao">Đang tải...</span></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-wrap">
+                    <div class="table-toolbar">
+                        <div class="title">
+                            <strong>Danh sách sản phẩm</strong>
+                        </div>
+                    </div>
+                    <table class="bordered-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">TT</th>
+                                <th style="width: 16%;">Mã sản phẩm</th>
+                                <th style="width: 38%;">Diễn giải</th>
+                                <th style="width: 10%;">Rộng</th>
+                                <th style="width: 10%;">Cao</th>
+                                <th style="width: 8%;">Số lượng</th>
+                                <th style="width: 8%;">HD Sử dụng</th>
+                                <th style="width: 8%;">HD Lắp đặt</th>
+                                <th style="width: 8%;">TT Bảo hành</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemTableBody">
+                            <!-- Rows will be added dynamically here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div>Hệ thống tra cứu bảo hành điện tử</div>
+            <div>
+                Phát triển bởi
+                <strong>Quang Minh Pro</strong> |
+                Website:
+                <a href="https://quangminhpro.com" target="_blank">
+                    quangminhpro.com
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
