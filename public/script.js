@@ -457,3 +457,16 @@ function initWarrantyToggleBehavior() {
         button.setAttribute('aria-expanded', String(willOpen));
     });
 }
+
+// Đảm bảo sự kiện vẫn hoạt động sau khi DOM thay đổi
+document.addEventListener('click', function (e) {
+    const button = e.target.closest('.warranty-toggle');
+    if (!button) return;
+    const targetId = button.getAttribute('data-target');
+    const row = document.getElementById(targetId);
+    if (!row) return;
+    const willOpen = row.hidden;
+    row.hidden = !willOpen;
+    button.textContent = willOpen ? 'Ẩn' : 'Xem';
+    button.setAttribute('aria-expanded', String(willOpen));
+});
