@@ -773,11 +773,14 @@ h2 {
         display: none;
     }
 
+    /* Preserve [hidden] attribute after display override */
+    .bordered-table tr[hidden] {
+        display: none !important;
+    }
+
     .bordered-table tbody tr.item-main-row {
-        display: grid;
-        grid-template-columns: 28px 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 0;
+        display: flex;
+        flex-direction: column;
         border: 1px solid var(--line);
         border-radius: 12px;
         margin: 8px 10px;
@@ -786,156 +789,185 @@ h2 {
         box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
     }
 
-    /* STT cell — small badge top-left */
-    .bordered-table tbody tr.item-main-row td:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
-        background: linear-gradient(180deg, #1f4b7b, #0f4c81);
-        color: #fff;
-        font-weight: 800;
-        font-size: 11px;
-        text-align: center;
-        padding: 6px 4px;
-        border: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* Mã SP — top-right area */
+    /* STT + Mã SP — header row */
+    .bordered-table tbody tr.item-main-row td:nth-child(1),
     .bordered-table tbody tr.item-main-row td:nth-child(2) {
-        grid-column: 2 / 4;
-        grid-row: 1;
-        font-size: 12px;
-        font-weight: 700;
+        border: none;
+    }
+
+    /* Row 1: STT badge + Mã SP side by side */
+    .bordered-table tbody tr.item-main-row td:nth-child(1) {
+        order: 1;
+        display: none;
+        /* hidden, STT shown inline with Mã SP via pseudo */
+    }
+
+    .bordered-table tbody tr.item-main-row td:nth-child(2) {
+        order: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 800;
         color: var(--accent);
-        padding: 6px 10px;
-        border: none;
+        padding: 8px 12px;
+        background: #f0f6ff;
         border-bottom: 1px solid var(--line);
-        background: #f5f9ff;
     }
 
-    /* Diễn giải — full width */
+    /* Diễn giải */
     .bordered-table tbody tr.item-main-row td:nth-child(3) {
-        grid-column: 1 / 4;
-        grid-row: 2;
+        order: 2;
+        display: block;
         font-size: 12px;
-        padding: 8px 10px;
+        padding: 8px 12px;
         border: none;
         border-bottom: 1px solid var(--line);
-        line-height: 1.5;
+        line-height: 1.55;
     }
 
-    /* Rộng, Cao, SL, HDSD, HDLD, Bảo hành → mini inline row */
+    /* Rows 3 & 4: 3-equal-column grid using flexbox rows */
+    /* Rộng, Cao, SL → row 3 */
+    /* HD SD, HD LĐ, Bảo hành → row 4 */
     .bordered-table tbody tr.item-main-row td:nth-child(4),
     .bordered-table tbody tr.item-main-row td:nth-child(5),
     .bordered-table tbody tr.item-main-row td:nth-child(6),
     .bordered-table tbody tr.item-main-row td:nth-child(7),
     .bordered-table tbody tr.item-main-row td:nth-child(8),
     .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        display: inline-flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: none;
-        font-size: 11px;
-        padding: 6px 8px;
-        gap: 2px;
-        width: auto;
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 4px;
+        gap: 3px;
         background: #fafcff;
-        border-right: 1px solid var(--line);
+        border: none;
+        text-align: center;
     }
 
-    /* Wrap the last 6 cells into one flex row */
-    .bordered-table tbody tr.item-main-row {
-        position: relative;
-    }
-
-    /* Use data-label pseudo trick */
-    .bordered-table tbody tr.item-main-row td:nth-child(4)::before {
-        content: "Rộng";
+    /* Use ::before for labels */
+    .bordered-table tbody tr.item-main-row td:nth-child(4)::before,
+    .bordered-table tbody tr.item-main-row td:nth-child(5)::before,
+    .bordered-table tbody tr.item-main-row td:nth-child(6)::before,
+    .bordered-table tbody tr.item-main-row td:nth-child(7)::before,
+    .bordered-table tbody tr.item-main-row td:nth-child(8)::before,
+    .bordered-table tbody tr.item-main-row td:nth-child(9)::before {
         font-size: 9px;
         font-weight: 700;
         color: var(--muted);
         text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .bordered-table tbody tr.item-main-row td:nth-child(4)::before {
+        content: "Rộng";
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(5)::before {
-        content: "Cao";
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
+        content: "Cao / Mở";
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(6)::before {
-        content: "SL";
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
+        content: "Số Lượng";
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(7)::before {
-        content: "HD SD";
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
+        content: "HD Sử dụng";
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(8)::before {
-        content: "HD LĐ";
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
+        content: "HD Lắp đặt";
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(9)::before {
-        content: "Bảo hành";
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
+        content: "TT Bảo hành";
     }
 
-    /* Force the 6 footer cells to sit in row 3, spanning full width */
+    /* Group cells 4-6 and 7-9 into flex rows */
     .bordered-table tbody tr.item-main-row td:nth-child(4) {
-        grid-column: 1;
-        grid-row: 3;
+        order: 3;
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(5) {
-        grid-column: 2;
-        grid-row: 3;
+        order: 3;
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(6) {
-        grid-column: 3;
-        grid-row: 3;
+        order: 3;
     }
 
-    /* Guide + warranty buttons get their own row 4 */
     .bordered-table tbody tr.item-main-row td:nth-child(7) {
-        grid-column: 1;
-        grid-row: 4;
-        border-top: 1px solid var(--line);
+        order: 4;
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(8) {
-        grid-column: 2;
-        grid-row: 4;
-        border-top: 1px solid var(--line);
+        order: 4;
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        grid-column: 3;
-        grid-row: 4;
+        order: 4;
+    }
+
+    /* Use a wrapper via flex-wrap trick: set row width so 3 cells wrap together */
+    .bordered-table tbody tr.item-main-row {
+        flex-wrap: wrap;
+    }
+
+    /* Cells 4-6: each takes 33.33% → sits on same row */
+    .bordered-table tbody tr.item-main-row td:nth-child(4),
+    .bordered-table tbody tr.item-main-row td:nth-child(5),
+    .bordered-table tbody tr.item-main-row td:nth-child(6) {
+        width: 33.333%;
+        flex: 0 0 33.333%;
         border-top: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+    }
+
+    .bordered-table tbody tr.item-main-row td:nth-child(6) {
         border-right: none;
+    }
+
+    /* Cells 7-9: each takes 33.33% → sits on same row below */
+    .bordered-table tbody tr.item-main-row td:nth-child(7),
+    .bordered-table tbody tr.item-main-row td:nth-child(8),
+    .bordered-table tbody tr.item-main-row td:nth-child(9) {
+        width: 33.333%;
+        flex: 0 0 33.333%;
+        border-top: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        background: #f5f9ff;
     }
 
     .bordered-table tbody tr.item-main-row td:nth-child(9) {
         border-right: none;
+    }
+
+    /* td:nth-child(1) STT — inject as prefix of Mã SP cell */
+    /* Show STT inside Mã SP cell via sibling trick not possible; keep td(1) visible as badge */
+    .bordered-table tbody tr.item-main-row td:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        flex: 0 0 28px;
+        order: 1;
+        background: linear-gradient(180deg, #1f4b7b, #0f4c81);
+        color: #fff;
+        font-weight: 800;
+        font-size: 12px;
+        padding: 8px 4px;
+        border-right: 1px solid rgba(255, 255, 255, 0.18);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .bordered-table tbody tr.item-main-row td:nth-child(2) {
+        flex: 1 1 0;
+        min-width: 0;
     }
 
     /* Warranty expand row */
