@@ -288,7 +288,7 @@ h2 {
 
 .info-value {
     width: 74%;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text);
     word-break: break-word;
     background: #fff;
@@ -660,7 +660,6 @@ h2 {
 
     /* Hero: stack vertically, tighter */
     .hero {
-        grid-template-columns: 1fr;
         gap: 10px;
         padding: 12px;
         border-radius: 16px;
@@ -679,7 +678,7 @@ h2 {
     }
 
     .eyebrow {
-        font-size: 10px;
+        font-size: 9px;
         padding: 5px 10px;
     }
 
@@ -767,19 +766,19 @@ h2 {
     }
 
     .bordered-table {
-        font-size: 10px;
+        font-size: 11px;
         min-width: 600px;
         /* đảm bảo bảng không bị co quá chật, có thể cuộn ngang */
     }
 
     .bordered-table thead th {
         padding: 8px 5px;
-        font-size: 9px;
+        font-size: 11px;
     }
 
     .bordered-table tbody td {
         padding: 8px 6px;
-        font-size: 10px;
+        font-size: 11px;
     }
 
     /* Nút toggle và guide nhỏ lại */
