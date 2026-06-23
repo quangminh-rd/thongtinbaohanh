@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý lịch sử bảo hành</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/admin.css" />
+    <script src="/admin.js" defer></script>
+</head>
+
+<body>
+    <div class="page-shell">
+        <div class="content" id="adminContent">
+            <div class="hero" style="grid-template-columns:1fr;">
+                <div class="hero-copy" style="text-align:center;">
+                    <h2>Quản lý lịch sử bảo hành</h2>
+                    <div class="eyebrow">Bộ phận chăm sóc khách hàng</div>
+                </div>
+            </div>
+
+            <!-- Form thêm/sửa -->
+            <div class="form-card" id="historyForm">
+                <h3 id="formTitle">Thêm mới</h3>
+                <input type="hidden" id="editId" />
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="maDonHang">Mã đơn hàng *</label>
+                        <input type="text" id="maDonHang" required placeholder="VD: 24.12-1C.029.01.S01-039" />
+                    </div>
+                    <div class="form-group">
+                        <label for="noiDung">Nội dung bảo hành *</label>
+                        <textarea id="noiDung" rows="2" placeholder="Mô tả chi tiết"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="nguoiThucHien">Người thực hiện</label>
+                        <input type="text" id="nguoiThucHien" placeholder="Tên nhân viên" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ketQua">Kết quả</label>
+                        <input type="text" id="ketQua" placeholder="Đã sửa xong / Bảo hành từ chối..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="ngayBaoHanh">Ngày bảo hành *</label>
+                        <input type="date" id="ngayBaoHanh" />
+                    </div>
+                    <div class="form-group" style="display:flex; gap:10px; align-items:end;">
+                        <button type="button" id="submitBtn" class="btn-primary">Thêm</button>
+                        <button type="button" id="cancelBtn" class="btn-secondary" style="display:none;">Hủy</button>
+                    </div>
+                </div>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+
+            <!-- Bộ lọc -->
+            <div class="filter-bar">
+                <input type="text" id="filterMaDonHang" placeholder="Lọc theo mã đơn hàng..." />
+                <button id="filterBtn" class="btn-secondary">Lọc</button>
+                <button id="resetFilterBtn" class="btn-secondary">Xóa lọc</button>
+            </div>
+
+            <!-- Bảng danh sách -->
+            <div class="table-wrap">
+                <div class="table-toolbar">
+                    <div class="title"><strong>Danh sách lịch sử</strong></div>
+                    <div class="chip" id="totalCount">0 bản ghi</div>
+                </div>
+                <table class="bordered-table" id="historyTable">
+                    <thead>
+                        <tr>
+                            <th style="width:5%;">STT</th>
+                            <th style="width:15%;">Mã đơn hàng</th>
+                            <th style="width:30%;">Nội dung</th>
+                            <th style="width:12%;">Người thực hiện</th>
+                            <th style="width:12%;">Kết quả</th>
+                            <th style="width:12%;">Ngày bảo hành</th>
+                            <th style="width:14%;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="7" class="cell-center">Đang tải...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div>Quản lý lịch sử bảo hành</div>
+            <div>Phát triển bởi <strong>Quang Minh Pro</strong></div>
+        </div>
+    </footer>
+</body>
+
+</html>

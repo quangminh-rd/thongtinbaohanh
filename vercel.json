@@ -1,0 +1,27 @@
+{
+    "rewrites": [
+        {
+            "source": "/thongtin",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/thongtin/(.*)",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/quanly",
+            "destination": "/admin.html"
+        },
+        {
+            "source": "/quanly/(.*)",
+            "destination": "/admin.html"
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/thongtin",
+            "permanent": true
+        }
+    ]
+}
