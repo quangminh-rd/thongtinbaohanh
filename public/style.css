@@ -694,7 +694,7 @@ h2 {
         gap: 5px;
     }
 
-    /* Hotline: compact single line */
+    /* Hotline: compact */
     .hotline-banner {
         margin-top: 10px;
         padding: 12px 14px;
@@ -750,7 +750,7 @@ h2 {
         width: 61%;
     }
 
-    /* Product table toolbar */
+    /* Table toolbar */
     .table-toolbar {
         padding: 10px 14px;
     }
@@ -759,266 +759,73 @@ h2 {
         font-size: 13px;
     }
 
-    /* Product table → card layout on mobile */
-    .bordered-table,
-    .bordered-table thead,
-    .bordered-table tbody,
-    .bordered-table th,
-    .bordered-table td,
-    .bordered-table tr {
-        display: block;
+    /* ── Giữ nguyên bố cục bảng, chỉ thu nhỏ font-size và padding ── */
+    .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 14px;
     }
 
-    .bordered-table thead {
-        display: none;
-    }
-
-    /* Preserve [hidden] attribute after display override */
-    .bordered-table tr[hidden] {
-        display: none !important;
-    }
-
-    .bordered-table tbody tr.item-main-row {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        margin: 8px 10px;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
-    }
-
-    /* STT + Mã SP — header row */
-    .bordered-table tbody tr.item-main-row td:nth-child(1),
-    .bordered-table tbody tr.item-main-row td:nth-child(2) {
-        border: none;
-    }
-
-    /* Row 1: STT badge + Mã SP side by side */
-    .bordered-table tbody tr.item-main-row td:nth-child(1) {
-        order: 1;
-        display: none;
-        /* hidden, STT shown inline with Mã SP via pseudo */
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(2) {
-        order: 1;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        font-weight: 800;
-        color: var(--accent);
-        padding: 8px 12px;
-        background: #f0f6ff;
-        border-bottom: 1px solid var(--line);
-    }
-
-    /* Diễn giải */
-    .bordered-table tbody tr.item-main-row td:nth-child(3) {
-        order: 2;
-        display: block;
-        font-size: 12px;
-        padding: 8px 12px;
-        border: none;
-        border-bottom: 1px solid var(--line);
-        line-height: 1.55;
-    }
-
-    /* Rows 3 & 4: 3-equal-column grid using flexbox rows */
-    /* Rộng, Cao, SL → row 3 */
-    /* HD SD, HD LĐ, Bảo hành → row 4 */
-    .bordered-table tbody tr.item-main-row td:nth-child(4),
-    .bordered-table tbody tr.item-main-row td:nth-child(5),
-    .bordered-table tbody tr.item-main-row td:nth-child(6),
-    .bordered-table tbody tr.item-main-row td:nth-child(7),
-    .bordered-table tbody tr.item-main-row td:nth-child(8),
-    .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        flex: 1 1 0;
-        min-width: 0;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 8px 4px;
-        gap: 3px;
-        background: #fafcff;
-        border: none;
-        text-align: center;
-    }
-
-    /* Use ::before for labels */
-    .bordered-table tbody tr.item-main-row td:nth-child(4)::before,
-    .bordered-table tbody tr.item-main-row td:nth-child(5)::before,
-    .bordered-table tbody tr.item-main-row td:nth-child(6)::before,
-    .bordered-table tbody tr.item-main-row td:nth-child(7)::before,
-    .bordered-table tbody tr.item-main-row td:nth-child(8)::before,
-    .bordered-table tbody tr.item-main-row td:nth-child(9)::before {
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(4)::before {
-        content: "Rộng";
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(5)::before {
-        content: "Cao / Mở";
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(6)::before {
-        content: "Số Lượng";
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(7)::before {
-        content: "HD Sử dụng";
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(8)::before {
-        content: "HD Lắp đặt";
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(9)::before {
-        content: "TT Bảo hành";
-    }
-
-    /* Group cells 4-6 and 7-9 into flex rows */
-    .bordered-table tbody tr.item-main-row td:nth-child(4) {
-        order: 3;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(5) {
-        order: 3;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(6) {
-        order: 3;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(7) {
-        order: 4;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(8) {
-        order: 4;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        order: 4;
-    }
-
-    /* Use a wrapper via flex-wrap trick: set row width so 3 cells wrap together */
-    .bordered-table tbody tr.item-main-row {
-        flex-wrap: wrap;
-    }
-
-    /* Cells 4-6: each takes 33.33% → sits on same row */
-    .bordered-table tbody tr.item-main-row td:nth-child(4),
-    .bordered-table tbody tr.item-main-row td:nth-child(5),
-    .bordered-table tbody tr.item-main-row td:nth-child(6) {
-        width: 33.333%;
-        flex: 0 0 33.333%;
-        border-top: 1px solid var(--line);
-        border-right: 1px solid var(--line);
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(6) {
-        border-right: none;
-    }
-
-    /* Cells 7-9: each takes 33.33% → sits on same row below */
-    .bordered-table tbody tr.item-main-row td:nth-child(7),
-    .bordered-table tbody tr.item-main-row td:nth-child(8),
-    .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        width: 33.333%;
-        flex: 0 0 33.333%;
-        border-top: 1px solid var(--line);
-        border-right: 1px solid var(--line);
-        background: #f5f9ff;
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(9) {
-        border-right: none;
-    }
-
-    /* td:nth-child(1) STT — inject as prefix of Mã SP cell */
-    /* Show STT inside Mã SP cell via sibling trick not possible; keep td(1) visible as badge */
-    .bordered-table tbody tr.item-main-row td:nth-child(1) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        flex: 0 0 28px;
-        order: 1;
-        background: linear-gradient(180deg, #1f4b7b, #0f4c81);
-        color: #fff;
-        font-weight: 800;
-        font-size: 12px;
-        padding: 8px 4px;
-        border-right: 1px solid rgba(255, 255, 255, 0.18);
-        border-bottom: 1px solid var(--line);
-    }
-
-    .bordered-table tbody tr.item-main-row td:nth-child(2) {
-        flex: 1 1 0;
-        min-width: 0;
-    }
-
-    /* Warranty expand row */
-    .bordered-table tbody tr.warranty-detail-row {
-        display: block;
-        margin: -6px 10px 8px;
-        border-radius: 0 0 12px 12px;
-        overflow: hidden;
-    }
-
-    .bordered-table tbody tr.warranty-detail-row td {
-        display: block;
-        border: none;
-    }
-
-    /* Guide + warranty toggle buttons */
-    .guide-link,
-    .warranty-toggle {
+    .bordered-table {
         font-size: 10px;
-        padding: 4px 8px;
+        min-width: 600px;
+        /* đảm bảo bảng không bị co quá chật, có thể cuộn ngang */
     }
 
-    /* Warranty panel inside */
+    .bordered-table thead th {
+        padding: 8px 5px;
+        font-size: 9px;
+    }
+
+    .bordered-table tbody td {
+        padding: 8px 6px;
+        font-size: 10px;
+    }
+
+    /* Nút toggle và guide nhỏ lại */
+    .warranty-toggle {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+
+    .guide-link {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+
+    /* Warranty panel bên trong */
     .warranty-panel {
         padding: 10px 12px 12px;
     }
 
     .warranty-panel table {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .warranty-panel thead th {
-        padding: 7px 8px;
-        font-size: 10px;
+        padding: 6px 6px;
+        font-size: 9px;
     }
 
     .warranty-panel tbody td {
-        padding: 8px 8px;
+        padding: 6px 6px;
     }
 
     .warranty-remaining {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+
+    .warranty-date {
         font-size: 10px;
-        padding: 4px 7px;
+    }
+
+    .warranty-criterion {
+        font-size: 10px;
     }
 
     /* Section card */
     .section-card {
-        border-radius: 14px;
-    }
-
-    .table-wrap {
         border-radius: 14px;
     }
 
